@@ -19,13 +19,13 @@ class ViewController: UIViewController {
 
     @IBAction func sumButtonAction(_ sender: Any) {
 
-        let num0 = Int(textField1.text ?? "") ?? 0
-        let num1 = Int(textField2.text ?? "") ?? 0
-        let num2 = Int(textField3.text ?? "") ?? 0
-        let num3 = Int(textField4.text ?? "") ?? 0
-        let num4 = Int(textField5.text ?? "") ?? 0
+        let num1 = Int(textField1.text ?? "") ?? 0
+        let num2 = Int(textField2.text ?? "") ?? 0
+        let num3 = Int(textField3.text ?? "") ?? 0
+        let num4 = Int(textField4.text ?? "") ?? 0
+        let num5 = Int(textField5.text ?? "") ?? 0
 
-        let sum = num0 + num1 + num2 + num3 + num4
+        let sum = num1 + num2 + num3 + num4 + num5
         answerLabel.text = String(sum)
     }
 
