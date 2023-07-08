@@ -44,7 +44,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
         for textField in textFields {
             if let text = textField?.text, let num = Int(text) {
-                sum = sum.addingReportingOverflow(num).partialValue            }
+                sum += num            }
         }
         sumAnswerLabel.text = "合計：\(String(sum))"
     }
