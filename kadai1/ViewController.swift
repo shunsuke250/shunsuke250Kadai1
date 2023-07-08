@@ -14,7 +14,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var textField4: UITextField!
     @IBOutlet private weak var textField5: UITextField!
     @IBOutlet private weak var sumCalculateButton: UIButton!
-    @IBOutlet weak var sumAnswerLabel: UILabel!
+    @IBOutlet private weak var sumAnswerLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
