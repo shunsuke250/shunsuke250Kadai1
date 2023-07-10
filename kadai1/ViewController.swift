@@ -16,22 +16,19 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var sumCalculateButton: UIButton!
     @IBOutlet private weak var sumAnswerLabel: UILabel!
 
+    private var textFields: [UITextField] {
+        [textField1, textField2, textField3, textField4, textField5]
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         sumCalculateButton.setTitle("合計値を計算する", for: .normal)
         sumAnswerLabel.text = "数値を入力して合計値を計算します"
-        textField1.delegate = self
-        textField2.delegate = self
-        textField3.delegate = self
-        textField4.delegate = self
-        textField5.delegate = self
 
-        let defaultValue = "0"
-        textField1.text = defaultValue
-        textField2.text = defaultValue
-        textField3.text = defaultValue
-        textField4.text = defaultValue
-        textField5.text = defaultValue
+        textFields.forEach {
+            $0.delegate = self
+            $0.text = "0"
+        }
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -39,13 +36,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func calculateSumValue(_ sender: UIButton) {
-        var sum = 0
-        let textFields = [textField1, textField2, textField3, textField4, textField5]
+        let sum = textFields
+            .map { Int($0.text ?? "0") ?? 0 }
+            .reduce(0, +)
 
-        for textField in textFields {
-            if let text = textField?.text, let num = Int(text) {
-                sum += num            }
-        }
         sumAnswerLabel.text = "合計：\(String(sum))"
     }
 
